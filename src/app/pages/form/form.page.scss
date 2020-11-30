@@ -1,0 +1,14 @@
+ion-list {
+  background-color: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --color: white;
+  font-weight: bold;
+}
+
+ion-label,
+ion-list-header {
+  --color: white;
+}

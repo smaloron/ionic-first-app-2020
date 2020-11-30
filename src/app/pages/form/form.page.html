@@ -12,6 +12,49 @@
       <ion-input></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="stacked">Villes</ion-label>
+      <ion-select multiple="true" cancelText="Pas question">
+        <ion-select-option>Dulin</ion-select-option>
+        <ion-select-option>Berlin</ion-select-option>
+        <ion-select-option>Paris</ion-select-option>
+        <ion-select-option>Madrid</ion-select-option>
+        <ion-select-option>Bruxelles</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>Etre humain</ion-label>
+        <ion-radio value="humain" slot="start"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Développeur</ion-label>
+        <ion-radio value="dev" slot="start"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-item>
+      <p>J'accepte les conditions générales d'utilisation du site</p>
+      <ion-checkbox value="ok" slot="end"></ion-checkbox>
+    </ion-item>
+
+    <ion-item-group>
+      <ion-list-header>
+        <ion-label position="stacked">Choisissez votre âge</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-range min="7" max="77" pin="true" snaps="true" step="10">
+          <ion-chip slot="start">7</ion-chip>
+          <ion-chip slot="end">77</ion-chip>
+        </ion-range>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item>
+      <ion-label>remember me</ion-label>
+      <ion-toggle slot="end" color="danger"></ion-toggle>
+    </ion-item>
 
   </ion-list>
 
