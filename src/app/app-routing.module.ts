@@ -8,12 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'currency-converter',
     pathMatch: 'full'
   },
   {
     path: 'form',
     loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule)
+  },
+  {
+    path: 'currency-converter',
+    loadChildren: () => import('./pages/currency-converter/currency-converter.module').then( m => m.CurrencyConverterPageModule)
   },
 ];
 
