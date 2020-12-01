@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>currency-converter</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-button [color]="favoriteColor" (click)="changeColor()">
+    Changer de couleur
+  </ion-button>
 
   <ion-list>
     <!-- Saisie du montant -->
@@ -24,7 +28,7 @@
   </ion-list>
 
 
-  <ion-button expand="block">Convertir</ion-button>
+  <ion-button expand="block" [color]="favoriteColor">Convertir</ion-button>
 
 
   <!-- Résultat de la conversion -->
