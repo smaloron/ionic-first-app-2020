@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'currency-converter',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'currency-converter',
     loadChildren: () => import('./pages/currency-converter/currency-converter.module').then( m => m.CurrencyConverterPageModule)
+  },
+  {
+    path: 'temperature-converter',
+    loadChildren: () => import('./pages/temperature-converter/temperature-converter.module').then( m => m.TemperatureConverterPageModule)
   },
 ];
 

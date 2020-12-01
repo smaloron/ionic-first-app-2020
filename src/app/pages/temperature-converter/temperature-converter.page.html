@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>temperature-converter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Température en degré celcius</ion-label>
+      <ion-input [(ngModel)]="celciusValue"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        {{ (celciusValue * 1.8) + 32 }} degrés Fahrenheit
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

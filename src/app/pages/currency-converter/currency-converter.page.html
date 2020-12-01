@@ -34,6 +34,7 @@
   <!-- Résultat de la conversion -->
   <ion-item>
     <ion-label>
+      <p>Le résultat est : {{ euroAmount }}</p>
       {{ (euroAmount * changeRate) | number:'2.2-2'}}
     </ion-label>
   </ion-item>
