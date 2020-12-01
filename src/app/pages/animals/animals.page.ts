@@ -73,7 +73,42 @@ export class AnimalsPage implements OnInit {
     }
   ];
 
+  // L'animal dont on a entendu le son
+  public currentAnimal;
+
+  // Un objet qui permet de jouer un son
+  public media: HTMLAudioElement;
+
   constructor() { }
+
+  // Clique sur le bouton jouer
+  play() {
+    // choix aléatoire d'un animal 
+    // si aucun animal n'a été préalablement choisi
+    if (!this.currentAnimal) {
+      const index = Math.floor(Math.random() * this.animalList.length);
+      this.currentAnimal = this.animalList[index];
+    }
+
+    // Si le son joue déjà on le met en pause
+    if (this.media && this.media.currentTime > 0) {
+      this.media.pause();
+    }
+
+    // Lecture du son
+    this.media = new Audio('/assets' + this.currentAnimal.file);
+    this.media.load();
+    this.media.play();
+
+  }
+
+  guessAnimal(clickedAnimal) {
+    if (clickedAnimal.title === this.currentAnimal.title) {
+      console.log('gagné');
+    } else {
+      console.log('perdu');
+    }
+  }
 
   ngOnInit() {
   }

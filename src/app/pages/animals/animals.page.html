@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let animal of animalList">
+    <ion-item *ngFor="let animal of animalList" (click)="guessAnimal(animal)">
       <ion-avatar slot="start">
         <ion-img src="/assets{{animal.image}}"></ion-img>
       </ion-avatar>
@@ -22,6 +22,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="full">JOUER LE SON</ion-button>
+    <ion-button expand="full" (click)="play()">JOUER LE SON</ion-button>
   </ion-toolbar>
 </ion-footer>
