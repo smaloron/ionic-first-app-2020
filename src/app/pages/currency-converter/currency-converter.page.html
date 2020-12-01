@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-title>{{ pageTitle | uppercase}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-button [color]="favoriteColor" (click)="changeColor()">
+  <ion-button [color]="favoriteColor" (click)="changeColor('success')">
     Changer de couleur
   </ion-button>
 
@@ -14,15 +14,15 @@
     <!-- Saisie du montant -->
     <ion-item>
       <ion-label position="stacked">Montant en euros</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="euroAmount"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Devise</ion-label>
-      <ion-select>
-        <ion-select-option value="USD">Dollar américain</ion-select-option>
-        <ion-select-option value="JPY">Yen japonaise</ion-select-option>
-        <ion-select-option value="GBP">Livre sterling</ion-select-option>
+      <ion-select [(ngModel)]="changeRate">
+        <ion-select-option value="1.15">Dollar américain</ion-select-option>
+        <ion-select-option value="125">Yen japonaise</ion-select-option>
+        <ion-select-option value=".80">Livre sterling</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -33,7 +33,9 @@
 
   <!-- Résultat de la conversion -->
   <ion-item>
-    <ion-label></ion-label>
+    <ion-label>
+      {{ (euroAmount * changeRate) | number:'2.2-2'}}
+    </ion-label>
   </ion-item>
 
 </ion-content>

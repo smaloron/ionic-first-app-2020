@@ -21,11 +21,15 @@ export class CurrencyConverterPage {
 
   public favoriteColor = 'warning';
 
-  constructor() { }
+  public changeRate = 1.15;
 
-  changeColor() {
+  constructor() { 
+    this.euroAmount = 5;
+  }
+
+  changeColor(color) {
     if (this.favoriteColor === 'warning') {
-      this.favoriteColor = 'danger';
+      this.favoriteColor = color;
     } else {
       this.favoriteColor = 'warning';
     }
