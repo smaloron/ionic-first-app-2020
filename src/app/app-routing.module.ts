@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'temperature-converter',
     loadChildren: () => import('./pages/temperature-converter/temperature-converter.module').then( m => m.TemperatureConverterPageModule)
   },
+  {
+    path: 'animals',
+    loadChildren: () => import('./pages/animals/animals.module').then( m => m.AnimalsPageModule)
+  },
 ];
 
 @NgModule({
