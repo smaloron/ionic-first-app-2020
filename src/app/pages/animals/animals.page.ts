@@ -99,12 +99,12 @@ export class AnimalsPage implements OnInit {
     this.media = new Audio('/assets' + this.currentAnimal.file);
     this.media.load();
     this.media.play();
-
   }
 
   guessAnimal(clickedAnimal) {
     if (clickedAnimal.title === this.currentAnimal.title) {
       console.log('gagné');
+      this.currentAnimal = null;
     } else {
       console.log('perdu');
     }
