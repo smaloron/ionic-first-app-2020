@@ -4,6 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <!-- Saisie du montant -->
+    <ion-item>
+      <ion-label position="stacked">Montant en euros</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Devise</ion-label>
+      <ion-select>
+        <ion-select-option value="USD">Dollar américain</ion-select-option>
+        <ion-select-option value="JPY">Yen japonaise</ion-select-option>
+        <ion-select-option value="GBP">Livre sterling</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-button expand="block">Convertir</ion-button>
+
+
+  <!-- Résultat de la conversion -->
+  <ion-item>
+    <ion-label></ion-label>
+  </ion-item>
 
 </ion-content>
