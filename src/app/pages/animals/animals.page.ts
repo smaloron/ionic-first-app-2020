@@ -101,6 +101,8 @@ export class AnimalsPage implements OnInit {
     this.media.play();
   }
 
+  // Fonction qui détermine si j'ai gagné ou perdu
+  // au click sur un animal
   guessAnimal(clickedAnimal) {
     if (clickedAnimal.title === this.currentAnimal.title) {
       console.log('gagné');
