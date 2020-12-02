@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-animals',
@@ -79,7 +80,8 @@ export class AnimalsPage implements OnInit {
   // Un objet qui permet de jouer un son
   public media: HTMLAudioElement;
 
-  constructor() { }
+  constructor(private toastCtrl: ToastController) { 
+  }
 
   // Clique sur le bouton jouer
   play() {
@@ -103,13 +105,33 @@ export class AnimalsPage implements OnInit {
 
   // Fonction qui détermine si j'ai gagné ou perdu
   // au click sur un animal
-  guessAnimal(clickedAnimal) {
-    if (clickedAnimal.title === this.currentAnimal.title) {
-      console.log('gagné');
+  async guessAnimal(clickedAnimal) {
+    let message;
+    if (!this.currentAnimal) {
+      message = 'Tu dois cliquer sur jouer pour gagner';
+    }else if (clickedAnimal.title === this.currentAnimal.title) {
+      message = 'gagné';
       this.currentAnimal = null;
     } else {
-      console.log('perdu');
+      message = 'perdu';
     }
+
+    await this.showMessage(message);
+  }
+
+  /**
+   * Affichage d'un message dans un toast
+   * @param text : Le texte du message
+   */
+  private async showMessage(text) {
+    const toast = await this.toastCtrl.create({
+      message: text,
+      duration: 5000,
+      position: 'middle',
+      color: 'danger'
+    });
+
+    toast.present();
   }
 
   ngOnInit() {
