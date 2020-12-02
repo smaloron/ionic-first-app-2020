@@ -47,4 +47,19 @@ export class NoteListService {
 
     return note;
   }
+
+  /**
+   * Enregistrement de la note
+   * @param note
+   */
+  save(note: NoteInterface) {
+    // Nouvelle note car id == null
+    if (note.id == null) {
+      // Affecter un id à la note
+      note.id = new Date().getTime();
+
+      // Ajout de la note au tableau des notes
+      this.noteList.push(note);
+    }
+  }
 }

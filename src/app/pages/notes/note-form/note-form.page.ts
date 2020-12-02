@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteInterface } from 'src/app/services/note-list.service';
+import { Router } from '@angular/router';
+import { NoteInterface, NoteListService } from 'src/app/services/note-list.service';
 
 @Component({
   selector: 'app-note-form',
@@ -14,13 +15,17 @@ export class NoteFormPage implements OnInit {
     id: null
   };
 
-  constructor() { }
+  constructor(private noteService: NoteListService, private router: Router) { }
 
   ngOnInit() {
   }
 
   validate() {
-    console.log(this.note);
+    
+    // Sauvegarde de la note
+    this.noteService.save(this.note);
+    // Retour à la liste des notes
+    this.router.navigateByUrl('note-list');
   }
 
 }
