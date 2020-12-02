@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'animals',
     loadChildren: () => import('./pages/animals/animals.module').then( m => m.AnimalsPageModule)
   },
+  {
+    path: 'hello/:name',
+    loadChildren: () => import('./pages/hello/hello.module').then( m => m.HelloPageModule)
+  },
 ];
 
 @NgModule({

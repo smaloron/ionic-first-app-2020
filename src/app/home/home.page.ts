@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public linkList = [
+    { label: 'Formulaire', path: '/form' },
+    { label: 'Animaux', path: '/animals' },
+    { label: 'Convertisseur de devises', path: '/currency-converter' },
+    { label: 'Convertisseur de température', path: '/temperature-converter' },
+    { label: 'Hello Seb', path: '/hello/seb' },
+    { label: 'Hello Maev', path: '/hello/maev' },
+  ];
+
+  constructor(private router: Router) { }
+  
+  goToPage(link) {
+    this.router.navigateByUrl(link.path);
+  }
 
 }

@@ -10,18 +10,10 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <ion-button expand="block" routerLink="/temperature-converter">
-    Conversion de température
+  <ion-button expand="block" *ngFor="let link of linkList" (click)="goToPage(link)">
+    {{ link.label }}
   </ion-button>
-  <ion-button expand="block" routerLink="/form">
-    Formulaire
-  </ion-button>
-  <ion-button expand="block" routerLink="/currency-converter">
-    Conversion de devises
-  </ion-button>
-  <ion-button expand="block" routerLink="/animals">
-    Jeu des animaux
-  </ion-button>
+
   <ion-grid>
     <ion-row>
       <ion-col size="4">
