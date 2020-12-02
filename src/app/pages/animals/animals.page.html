@@ -7,15 +7,25 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let animal of animalList" (click)="guessAnimal(animal)">
-      <ion-avatar slot="start">
-        <ion-img src="/assets{{animal.image}}"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h3>{{ animal.title }}</h3>
-        <p>{{ animal.desc }}</p>
-      </ion-label>
-    </ion-item>
+    <!-- 
+         Sur le déplacement d'un animal (evénement ionItemReorder)
+         on appelle une méthode de la class (reorderAnimal)
+         en lui passant en argument le contexte de l'événement ($event)
+         une variable fournie par Angular
+    -->
+    <ion-reorder-group disabled="false" (ionItemReorder)="reorderAnimal($event)">
+
+      <ion-item *ngFor="let animal of animalList" (click)="guessAnimal(animal)">
+        <ion-avatar slot="start">
+          <ion-img src="/assets{{animal.image}}"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h3>{{ animal.title }}</h3>
+          <p>{{ animal.desc }}</p>
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
   </ion-list>
 
 </ion-content>

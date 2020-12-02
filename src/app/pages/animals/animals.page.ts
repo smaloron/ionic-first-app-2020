@@ -147,4 +147,12 @@ export class AnimalsPage implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Finalisation du déplacement d'un élément
+   * @param context 
+   */
+  reorderAnimal(context) {
+    context.detail.complete();
+  }
+
 }
