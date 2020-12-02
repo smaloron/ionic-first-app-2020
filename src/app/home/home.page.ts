@@ -15,6 +15,7 @@ export class HomePage {
     { label: 'Convertisseur de température', path: '/temperature-converter' },
     { label: 'Hello Seb', path: '/hello/seb' },
     { label: 'Hello Maev', path: '/hello/maev' },
+    { label: 'Liste des notes', path: 'note-list'}
   ];
 
   constructor(private router: Router) { }

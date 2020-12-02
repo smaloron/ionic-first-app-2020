@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hello',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloPage implements OnInit {
 
-  constructor() { }
+  public name = "Inconnu";
+
+  constructor(private route: ActivatedRoute) { 
+    this.name = route.snapshot.paramMap.get('name');
+  }
 
   ngOnInit() {
   }
