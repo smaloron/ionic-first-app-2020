@@ -83,6 +83,9 @@ export class AnimalsPage implements OnInit {
   // Nombre d'essais
   private tries = 0;
 
+  // Peut-on déplacer les animaux
+  public reorderDisabled = false;
+
   constructor(private toastCtrl: ToastController) { }
 
   // Clique sur le bouton jouer
@@ -153,6 +156,10 @@ export class AnimalsPage implements OnInit {
    */
   reorderAnimal(context) {
     context.detail.complete();
+  }
+
+  deleteAnimal(pos) {
+    this.animalList.splice(pos, 1);
   }
 
 }
