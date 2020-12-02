@@ -1,0 +1,50 @@
+import { Injectable } from '@angular/core';
+
+export interface NoteInterface {
+  title: string;
+  text: string;
+  id: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NoteListService {
+
+  private noteList: NoteInterface[] = [
+    { title: 'Première note', text: 'Lorem ipsum', id: 1 },
+    { title: 'Deuxième note', text: 'Dolor sit amet', id: 2 },
+    { title: 'Troisième note', text: 'bla bal', id: 3 }
+  ];
+
+  constructor() { }
+
+  /**
+   * Retourne la liste de toutes les notes
+   */
+  findAll(): NoteInterface[] {
+    return this.noteList;
+  }
+
+  /**
+   * Retourne une note en fonction de son id
+   * @param id 
+   */
+  findOneById(id): NoteInterface {
+    /*
+    let note;
+    for (let item of this.noteList) {
+      if (item.id == id) {
+        note = item;
+        break;
+      }
+    }
+    */
+    // Recherche d'une note dans la liste en fonction de son id
+    // La méthode find adement en argument une fonction callback
+    // qui retourne true quand la note est trouvée
+    const note: NoteInterface = this.noteList.find((item) => item.id == id);
+
+    return note;
+  }
+}

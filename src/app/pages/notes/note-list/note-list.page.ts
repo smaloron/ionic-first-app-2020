@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteListService } from 'src/app/services/note-list.service';
 
 @Component({
   selector: 'app-note-list',
@@ -7,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteListPage implements OnInit {
 
-  public noteList = [
-    { title: 'Première note', text: 'Lorem ipsum', id: 1 },
-    { title: 'Deuxième note', text: 'Dolor sit amet', id: 2 },
-    { title: 'Troisième note', text: 'bla bal', id: 3 }
-  ];
+  public noteList = [];
 
-  constructor() { }
+  constructor(private noteService: NoteListService) {
+    this.noteList = this.noteService.findAll();
+  }
 
   ngOnInit() {
   }

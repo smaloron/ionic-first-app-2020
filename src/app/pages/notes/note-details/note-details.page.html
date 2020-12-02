@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>note-details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ note.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> {{ note.text }} </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

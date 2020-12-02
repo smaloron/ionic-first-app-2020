@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'note-details/:id',
     loadChildren: () => import('./pages/notes/note-details/note-details.module').then( m => m.NoteDetailsPageModule)
   },
+  {
+    path: 'note-form',
+    loadChildren: () => import('./pages/notes/note-form/note-form.module').then( m => m.NoteFormPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NoteInterface, NoteListService } from 'src/app/services/note-list.service';
 
 @Component({
   selector: 'app-note-details',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteDetailsPage implements OnInit {
 
-  constructor() { }
+
+  public note: NoteInterface;
+
+  constructor(private route: ActivatedRoute,
+              private noteService: NoteListService) {
+    // Récupération de l'identifiant passé en paramètre de la route
+    const id = parseInt(route.snapshot.paramMap.get('id'), 10);
+    // récupération de la note depuis le service
+    this.note = this.noteService.findOneById(id);
+
+  }
 
   ngOnInit() {
   }
