@@ -80,8 +80,10 @@ export class AnimalsPage implements OnInit {
   // Un objet qui permet de jouer un son
   public media: HTMLAudioElement;
 
-  constructor(private toastCtrl: ToastController) { 
-  }
+  // Nombre d'essais
+  private tries = 0;
+
+  constructor(private toastCtrl: ToastController) { }
 
   // Clique sur le bouton jouer
   play() {
@@ -109,11 +111,19 @@ export class AnimalsPage implements OnInit {
     let message;
     if (!this.currentAnimal) {
       message = 'Tu dois cliquer sur jouer pour gagner';
-    }else if (clickedAnimal.title === this.currentAnimal.title) {
-      message = 'gagné';
+
+    } else if (clickedAnimal.title === this.currentAnimal.title) {
+      // Incrémentation du nombre d'essais
+      this.tries++;
+      message = 'gagné en ' + this.tries + ' coups ';
+
+      // RAZ du jeu
       this.currentAnimal = null;
+      this.tries = 0;
     } else {
       message = 'perdu';
+      // Incrémentation du nombre d'essais
+      this.tries++;
     }
 
     await this.showMessage(message);
@@ -126,7 +136,7 @@ export class AnimalsPage implements OnInit {
   private async showMessage(text) {
     const toast = await this.toastCtrl.create({
       message: text,
-      duration: 5000,
+      duration: 1000,
       position: 'middle',
       color: 'danger'
     });
