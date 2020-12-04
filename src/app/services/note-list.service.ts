@@ -64,4 +64,12 @@ export class NoteListService {
       this.noteList.push(note);
     }
   }
+
+  // Suppression d'une note
+  delete(id) {
+    // Récupérer la position de la note dans le tableau
+    const index = this.noteList.findIndex((item) => item.id == id);
+    // Suppression de la note dans le tableau
+    this.noteList.splice(index, 1);
+  }
 }

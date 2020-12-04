@@ -17,4 +17,10 @@ export class NoteListPage implements OnInit {
   ngOnInit() {
   }
 
+  deleteNote(id) {
+    // Appel de la méthode de suppression 
+    // sur le service 
+    this.noteService.delete(id);
+  }
+
 }
