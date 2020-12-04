@@ -11,6 +11,8 @@ export interface NoteInterface {
 })
 export class NoteListService {
 
+  // Liste des notes
+  // un tableau ordinal d'objets de type NoteInterface
   private noteList: NoteInterface[] = [
     { title: 'Première note', text: 'Lorem ipsum', id: 1 },
     { title: 'Deuxième note', text: 'Dolor sit amet', id: 2 },
